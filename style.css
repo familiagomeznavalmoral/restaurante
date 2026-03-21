@@ -30,7 +30,7 @@ h1, h2 { font-family: 'Playfair Display', serif; }
 /* --- HEADER / HERO --- */
 header {
   background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-              url('https://phantom-elmundo.unidadeditorial.es/2f7a5de92d4a2b1e69953af69b94fdd2/crop/218x35/2782x1958/resize/2560/f/webp/assets/multimedia/imagenes/2023/06/19/16871657945574.jpg');
+              url('/fondo.jpg');
   background-size: cover;
   background-position: center;
   height: 80vh;
