@@ -1,0 +1,98 @@
+:root {
+    --primary: #6c5ce7;
+    --danger: #ff7675;
+    --success: #55efc4;
+    --cell-size: 42px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: radial-gradient(circle at center, #2d3436, #000);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+.hidden { display: none !important; }
+
+/* Contenedor Glassmorphism */
+.glass-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+h1 { font-weight: 900; font-size: 2.8rem; margin-bottom: 5px; }
+h1 span { color: var(--success); }
+.subtitle { font-size: 0.8rem; letter-spacing: 3px; opacity: 0.5; margin-bottom: 40px; }
+
+/* Tarjetas de Menú */
+.difficulty-grid { display: flex; gap: 20px; }
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.card:hover { 
+    transform: translateY(-15px); 
+    background: rgba(255,255,255,0.15);
+    border-color: var(--primary);
+}
+.card-icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+/* Juego */
+.stats-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0,0,0,0.3);
+    padding: 15px; border-radius: 15px; margin-bottom: 20px;
+}
+.back-btn, .retry-btn {
+    background: var(--primary); color: white; border: none;
+    padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;
+}
+
+.grid-board { display: grid; gap: 5px; justify-content: center; }
+.cell {
+    width: var(--cell-size); height: var(--cell-size);
+    background: rgba(255,255,255,0.1); border-radius: 6px;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: 800; cursor: pointer; transition: 0.2s;
+}
+.cell.revealed { background: white; color: #333; cursor: default; }
+
+/* EXPLOSIÓN GIGANTE */
+.cell.bomb.exploding {
+    background: var(--danger) !important;
+    z-index: 9999; position: relative;
+    transform: scale(40); border-radius: 50%;
+    transition: transform 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.death-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+}
+.boom-text { font-size: 5rem; color: var(--danger); animation: shake 0.1s infinite; }
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px); }
+    50% { transform: translate(-1px, -1px); }
+    100% { transform: translate(1px, -1px); }
+}
+
+.cell[data="1"] { color: #0984e3; }
+.cell[data="2"] { color: #00b894; }
+.cell[data="3"] { color: #d63031; }

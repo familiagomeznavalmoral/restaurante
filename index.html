@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscaminas PRO | Ultimate Edition</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="glass-container">
+        <!-- MENÚ PRINCIPAL -->
+        <div id="menu-screen">
+            <div class="menu-header">
+                <h1>BUSCAMINAS<span>PRO</span></h1>
+                <p class="subtitle">PROYECTO PERSONAL 2026</p>
+            </div>
+            
+            <div class="difficulty-grid">
+                <div class="card card-easy" onclick="startGame(8, 10)">
+                    <div class="card-icon">🌱</div>
+                    <h3>RELAX</h3>
+                    <span>8x8 • 10 Minas</span>
+                </div>
+                <div class="card card-medium" onclick="startGame(10, 20)">
+                    <div class="card-icon">⚡</div>
+                    <h3>ESTÁNDAR</h3>
+                    <span>10x10 • 20 Minas</span>
+                </div>
+                <div class="card card-hard" onclick="startGame(12, 40)">
+                    <div class="card-icon">💀</div>
+                    <h3>PESADILLA</h3>
+                    <span>12x12 • 40 Minas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA DE JUEGO -->
+        <div id="game-screen" class="hidden">
+            <div class="stats-bar">
+                <div class="stat">💣 <span id="mine-count">0</span></div>
+                <button class="back-btn" onclick="location.reload()">SALIR</button>
+                <div class="stat">⏱️ <span id="timer">000</span></div>
+            </div>
+            <div id="grid" class="grid-board"></div>
+        </div>
+    </div>
+
+    <!-- OVERLAY DE MUERTE -->
+    <div id="death-screen" class="death-overlay hidden">
+        <div class="explosion-content">
+            <h2 class="boom-text">¡BOOOOM!</h2>
+            <p>Has pisado una mina...</p>
+            <button class="retry-btn" onclick="location.reload()">REINTENTAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
