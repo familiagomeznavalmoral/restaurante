@@ -30,7 +30,7 @@ h1, h2 { font-family: 'Playfair Display', serif; }
 /* --- HEADER / HERO --- */
 header {
   background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-              url('/fondo.jpg');
+              url('imagenes/fondo.jpg');
   background-size: cover;
   background-position: center;
   height: 80vh;
