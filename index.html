@@ -1,61 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscaminas PRO | Ultimate Edition</title>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Esquina Café: experiencia gourmet con café premium, desayunos artesanales y ambiente acogedor tipo bar de madera en Madrid. Reserva tu mesa y disfruta de nuestros platos únicos.">
+  <meta name="keywords" content="café, desayuno, restaurante, Madrid, gourmet, madera, rústico, reserva, espresso, croissant, bowl de avena">
+  <title>La Esquina Café | Experiencia Gourmet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="glass-container">
-        <!-- MENÚ PRINCIPAL -->
-        <div id="menu-screen">
-            <div class="menu-header">
-                <h1>BUSCAMINAS<span>PRO</span></h1>
-                <p class="subtitle">PROYECTO PERSONAL 2026</p>
+  <a href="https://wa.me/34123456789" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Reservar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Reservar por WhatsApp">
+  </a>
+
+  <header>
+    <div class="overlay">
+      <h1>La Esquina Café</h1>
+      <p>Donde el buen café y los amigos se encuentran.</p>
+      <a href="#contacto" class="btn" aria-label="Ir a la sección de reservas">Reserva tu Mesa</a>
+    </div>
+  </header>
+
+  <nav id="navbar">
+    <a href="#menu">Menú</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <main>
+    <section id="menu">
+    <h2>Nuestra Selección</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop" alt="Espresso">
+        <div class="info">
+            <div class="title-line">
+            <h3>Espresso Premium</h3>
+            <span class="price">2.50€</span>
             </div>
-            
-            <div class="difficulty-grid">
-                <div class="card card-easy" onclick="startGame(8, 10)">
-                    <div class="card-icon">🌱</div>
-                    <h3>RELAX</h3>
-                    <span>8x8 • 10 Minas</span>
-                </div>
-                <div class="card card-medium" onclick="startGame(10, 20)">
-                    <div class="card-icon">⚡</div>
-                    <h3>ESTÁNDAR</h3>
-                    <span>10x10 • 20 Minas</span>
-                </div>
-                <div class="card card-hard" onclick="startGame(12, 40)">
-                    <div class="card-icon">💀</div>
-                    <h3>PESADILLA</h3>
-                    <span>12x12 • 40 Minas</span>
-                </div>
-            </div>
+            <p>Grano de especialidad tostado artesanalmente.</p>
+        </div>
         </div>
 
-        <!-- PANTALLA DE JUEGO -->
-        <div id="game-screen" class="hidden">
-            <div class="stats-bar">
-                <div class="stat">💣 <span id="mine-count">0</span></div>
-                <button class="back-btn" onclick="location.reload()">SALIR</button>
-                <div class="stat">⏱️ <span id="timer">000</span></div>
+        <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1000&auto=format&fit=crop" alt="Croissant">
+        <div class="info">
+            <div class="title-line">
+            <h3>Croissant Mantequilla</h3>
+            <span class="price">3.20€</span>
             </div>
-            <div id="grid" class="grid-board"></div>
+            <p>Hojaldrado perfecto, horneado cada mañana.</p>
+        </div>
+        </div>
+
+        <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?q=80&w=1000&auto=format&fit=crop" alt="Bowl">
+        <div class="info">
+            <div class="title-line">
+            <h3>Bowl de Avena</h3>
+            <span class="price">6.50€</span>
+            </div>
+            <p>Fruta de temporada, semillas y miel orgánica.</p>
+        </div>
+        </div>
+
+        <div class="menu-item">
+        <img src="https://gourmet.iprospect.cl/wp-content/uploads/2017/05/torta-choc-manjar-editada.jpg" alt="Tarta">
+        <div class="info">
+            <div class="title-line">
+            <h3>Tarta Gourmet</h3>
+            <span class="price">4.50€</span>
+            </div>
+            <p>Chocolate belga con relleno de manjar artesano.</p>
+        </div>
         </div>
     </div>
+    </section>
 
-    <!-- OVERLAY DE MUERTE -->
-    <div id="death-screen" class="death-overlay hidden">
-        <div class="explosion-content">
-            <h2 class="boom-text">¡BOOOOM!</h2>
-            <p>Has pisado una mina...</p>
-            <button class="retry-btn" onclick="location.reload()">REINTENTAR</button>
+    <section id="galeria" class="bg-light">
+      <h2>Ambiente y Sabor</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Interior acogedor del café con mesas de madera y iluminación cálida">
+          <div class="overlay">Ambiente Acogedor</div>
         </div>
-    </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1000&auto=format&fit=crop" alt="Arte latte en una taza de café con diseño creativo">
+          <div class="overlay">Arte Latte</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://gourmet.iprospect.cl/wp-content/uploads/2017/05/torta-choc-manjar-editada.jpg">
+          <div class="overlay">Tarta Gourmet</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop" alt="Cena romántica con velas y platos gourmet en el restaurante">
+          <div class="overlay">Cena Romántica</div>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="contacto">
+      <div class="contact-grid">
+        <div class="form-side">
+          <h2>Reserva Online</h2>
+          <form id="reservation-form">
+            <input type="text" id="name" placeholder="Nombre completo" required aria-label="Ingresa tu nombre completo">
+            <input type="tel" id="phone" placeholder="Teléfono" pattern="\d{9}" required aria-label="Ingresa tu número de teléfono de 9 dígitos">
+            <input type="date" id="date" required aria-label="Selecciona la fecha de reserva">
+            <button type="submit" id="submit-btn" aria-label="Confirmar reserva">Confirmar Reserva</button>
+          </form>
+        </div>
+        <div class="map-side">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.552!2d-3.7038!3d40.4168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sPlaza%20Mayor%2C%20Madrid!5e0!3m2!1ses!2ses!4v1700000000!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          
+          <div class="contact-info">
+            <div class="info-item">
+              <span class="icon">📍</span>
+              <strong>Dirección:</strong>
+              <span>Calle del Sabor 42, Madrid</span>
+            </div>
+            <div class="info-item">
+              <span class="icon">📞</span>
+              <strong>Teléfono:</strong>
+              <span>912 345 678</span>
+            </div>
+            <div class="info-item">
+              <span class="icon">🕒</span>
+              <strong>Horarios:</strong>
+              <span>L-D 8:00 - 22:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 La Esquina Café | <a href="#" class="legal-link">Aviso Legal</a></p>
+    <a href="#contacto" class="btn footer-cta">Reserva tu Mesa Ahora</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

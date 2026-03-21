@@ -1,100 +1,69 @@
-let width, bombAmount, squares = [];
-let isGameOver = false;
-const grid = document.getElementById('grid');
+document.getElementById('reservation-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const nombre = document.getElementById('name').value.trim();
+  const telefono = document.getElementById('phone').value.trim();
+  const fecha = document.getElementById('date').value;
+  const btn = document.getElementById('submit-btn');
+  
+  // Validación básica
+  if (!nombre || !telefono || !fecha) {
+    showMessage('Por favor, completa todos los campos.', 'error');
+    return;
+  }
+  
+  if (!/^\d{9}$/.test(telefono)) {
+    showMessage('El teléfono debe tener 9 dígitos.', 'error');
+    return;
+  }
+  
+  const today = new Date().toISOString().split('T')[0];
+  if (fecha < today) {
+    showMessage('La fecha debe ser hoy o en el futuro.', 'error');
+    return;
+  }
+  
+  btn.innerText = "Procesando… ⏳";
+  btn.disabled = true;
+  btn.setAttribute('aria-busy', 'true');
 
-function startGame(w, bombs) {
-    width = w;
-    bombAmount = bombs;
-    document.getElementById('menu-screen').classList.add('hidden');
-    document.getElementById('game-screen').classList.remove('hidden');
-    document.getElementById('mine-count').innerText = bombs;
+  setTimeout(() => {
+    const mensaje = `Hola, soy ${nombre} y quiero reservar para el ${fecha}. Tel: ${telefono}`;
+    const url = `https://wa.me/34123456789?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
     
-    grid.style.gridTemplateColumns = `repeat(${width}, 42px)`;
-    createBoard();
+    showMessage(`¡Hola ${nombre}! Tu solicitud ha sido enviada. Te contactaremos pronto.`, 'success');
+    btn.innerText = "Confirmar Reserva";
+    btn.disabled = false;
+    btn.removeAttribute('aria-busy');
+    this.reset();
+  }, 1500);
+});
+
+function showMessage(text, type) {
+  const existing = document.querySelector('.message');
+  if (existing) existing.remove();
+  
+  const message = document.createElement('div');
+  message.className = `message ${type}`;
+  message.setAttribute('role', 'alert'); // accesibilidad
+  message.textContent = text;
+  message.style.cssText = `
+    position: fixed; top: 20px; right: 20px; padding: 15px 20px; border-radius: 8px; 
+    color: white; font-weight: bold; z-index: 1001; animation: slideIn 0.3s ease;
+    ${type === 'success' ? 'background: #28a745;' : 'background: #dc3545;'}
+  `;
+  document.body.appendChild(message);
+  
+  setTimeout(() => {
+    message.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => message.remove(), 300);
+  }, 3000);
 }
 
-function createBoard() {
-    const bombsArray = Array(bombAmount).fill('bomb');
-    const emptyArray = Array(width * width - bombAmount).fill('valid');
-    const gameArray = emptyArray.concat(bombsArray).sort(() => Math.random() - 0.5);
-
-    for (let i = 0; i < width * width; i++) {
-        const square = document.createElement('div');
-        square.setAttribute('id', i);
-        square.classList.add('cell');
-        square.classList.add(gameArray[i]);
-        grid.appendChild(square);
-        squares.push(square);
-
-        square.addEventListener('click', () => click(square));
-        
-        // Poner bandera con click derecho
-        square.oncontextmenu = (e) => {
-            e.preventDefault();
-            if (!square.classList.contains('revealed')) {
-                square.innerHTML = square.innerHTML === '🚩' ? '' : '🚩';
-            }
-        }
-    }
-
-    // Lógica de números (Igual que tu contarMinasCercanas de Java)
-    for (let i = 0; i < squares.length; i++) {
-        let total = 0;
-        const isLeft = (i % width === 0);
-        const isRight = (i % width === width - 1);
-
-        if (squares[i].classList.contains('valid')) {
-            if (i > 0 && !isLeft && squares[i-1].classList.contains('bomb')) total++;
-            if (i > width-1 && !isRight && squares[i+1-width].classList.contains('bomb')) total++;
-            if (i > width-1 && squares[i-width]?.classList.contains('bomb')) total++;
-            if (i > width && !isLeft && squares[i-1-width].classList.contains('bomb')) total++;
-            if (i < width*width-1 && !isRight && squares[i+1].classList.contains('bomb')) total++;
-            if (i < width*width-width && !isLeft && squares[i-1+width].classList.contains('bomb')) total++;
-            if (i < width*width-width-1 && !isRight && squares[i+1+width].classList.contains('bomb')) total++;
-            if (i < width*width-width && squares[i+width].classList.contains('bomb')) total++;
-            squares[i].setAttribute('data', total);
-        }
-    }
-}
-
-function click(square) {
-    if (isGameOver || square.classList.contains('revealed') || square.innerHTML === '🚩') return;
-
-    if (square.classList.contains('bomb')) {
-        gameOver(square);
-    } else {
-        let total = square.getAttribute('data');
-        square.classList.add('revealed');
-        if (total != 0) {
-            square.innerHTML = total;
-            return;
-        }
-        checkSquare(parseInt(square.id));
-    }
-}
-
-// Recursividad (Tu destaparCasilla)
-function checkSquare(id) {
-    const isLeft = (id % width === 0);
-    const isRight = (id % width === width - 1);
-
-    setTimeout(() => {
-        if (id > 0 && !isLeft) click(squares[id - 1]);
-        if (id > width-1 && !isRight) click(squares[id + 1 - width]);
-        if (id > width-1) click(squares[id - width]);
-        if (id > width && !isLeft) click(squares[id - 1 - width]);
-        if (id < width*width-1 && !isRight) click(squares[id + 1]);
-        if (id < width*width-width && !isLeft) click(squares[id - 1 + width]);
-        if (id < width*width-width-1 && !isRight) click(squares[id + 1 + width]);
-        if (id < width*width-width) click(squares[id + width]);
-    }, 10);
-}
-
-function gameOver(square) {
-    isGameOver = true;
-    square.innerHTML = '💣';
-    square.classList.add('exploding');
-    setTimeout(() => {
-        document.getElementById('death-screen').classList.remove('hidden');
-    }, 700);
-}
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+`;
+document.head.appendChild(style);
