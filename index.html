@@ -11,6 +11,29 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+  <style>
+    .theme-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: transform 0.3s;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .theme-btn:hover { transform: scale(1.2); }
+    
+    /* Ajuste para que el botón no rompa el diseño del menú */
+    #navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -55,82 +78,83 @@
   <nav id="navbar">
     <a href="#menu">Menú</a>
     <a href="#galeria">Galería</a>
+    <button id="theme-toggle" class="theme-btn" title="Cambiar modo luz/oscuridad">🌙</button>
     <a href="#contacto">Contacto</a>
     <a href="tel:912345678" class="call-btn">Llamar</a>
   </nav>
 
   <main>
     <section id="menu">
-  <h2>Nuestra Selección</h2>
-  <div class="menu-grid">
-    
-    <div class="menu-item" data-aos="fade-up">
-      <img src="imagenes/1.jpg" alt="Espresso">
-      <div class="info">
-        <div class="title-line">
-          <h3>Espresso Premium</h3>
-          <span class="price">2.50€</span>
+      <h2>Nuestra Selección</h2>
+      <div class="menu-grid">
+        <div class="menu-item" data-aos="fade-up">
+          <img src="imagenes/1.jpg" alt="Espresso">
+          <div class="info">
+            <div class="title-line">
+              <h3>Espresso Premium</h3>
+              <span class="price">2.50€</span>
+            </div>
+            <p>Grano de especialidad tostado artesanalmente.</p>
+          </div>
         </div>
-        <p>Grano de especialidad tostado artesanalmente.</p>
-      </div>
-    </div>
 
-    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
-      <img src="imagenes/2.jpg" alt="Croissant">
-      <div class="info">
-        <div class="title-line">
-          <h3>Croissant Mantequilla</h3>
-          <span class="price">3.20€</span>
+        <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+          <img src="imagenes/2.jpg" alt="Croissant">
+          <div class="info">
+            <div class="title-line">
+              <h3>Croissant Mantequilla</h3>
+              <span class="price">3.20€</span>
+            </div>
+            <p>Hojaldrado perfecto, horneado cada mañana.</p>
+          </div>
         </div>
-        <p>Hojaldrado perfecto, horneado cada mañana.</p>
-      </div>
-    </div>
 
-    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
-      <img src="imagenes/3.jpg" alt="Bowl">
-      <div class="info">
-        <div class="title-line">
-          <h3>Bowl de Avena</h3>
-          <span class="price">6.50€</span>
+        <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+          <img src="imagenes/3.jpg" alt="Bowl">
+          <div class="info">
+            <div class="title-line">
+              <h3>Bowl de Avena</h3>
+              <span class="price">6.50€</span>
+            </div>
+            <p>Fruta de temporada, semillas y miel orgánica.</p>
+          </div>
         </div>
-        <p>Fruta de temporada, semillas y miel orgánica.</p>
-      </div>
-    </div>
 
-    <div class="menu-item" data-aos="fade-up" data-aos-delay="300">
-      <img src="imagenes/4.png" alt="Tarta">
-      <div class="info">
-        <div class="title-line">
-          <h3>Tarta Gourmet</h3>
-          <span class="price">4.50€</span>
+        <div class="menu-item" data-aos="fade-up" data-aos-delay="300">
+          <img src="imagenes/4.png" alt="Tarta">
+          <div class="info">
+            <div class="title-line">
+              <h3>Tarta Gourmet</h3>
+              <span class="price">4.50€</span>
+            </div>
+            <p>Chocolate belga con relleno de manjar artesano.</p>
+          </div>
         </div>
-        <p>Chocolate belga con relleno de manjar artesano.</p>
-      </div>
-    </div>
 
-    <div class="menu-item" data-aos="fade-up" data-aos-delay="400">
-      <img src="imagenes/Aguacate.png" alt="Tostada de Aguacate">
-      <div class="info">
-        <div class="title-line">
-          <h3>Tostada Aguacate y Huevo</h3>
-          <span class="price">7.50€</span>
+        <div class="menu-item" data-aos="fade-up" data-aos-delay="400">
+          <img src="imagenes/Aguacate.png" alt="Tostada de Aguacate">
+          <div class="info">
+            <div class="title-line">
+              <h3>Tostada Aguacate y Huevo</h3>
+              <span class="price">7.50€</span>
+            </div>
+            <p>Aguacate fresco, huevo pochado y semillas en pan de masa madre.</p>
+          </div>
         </div>
-        <p>Aguacate fresco, huevo pochado y semillas en pan de masa madre.</p>
-      </div>
-    </div>
 
-    <div class="menu-item" data-aos="fade-up" data-aos-delay="500">
-      <img src="imagenes/Cinnamon.png" alt="Cinnamon Roll">
-      <div class="info">
-        <div class="title-line">
-          <h3>Cinnamon Roll Artesanal</h3>
-          <span class="price">4.80€</span>
+        <div class="menu-item" data-aos="fade-up" data-aos-delay="500">
+          <img src="imagenes/Cinnamon.png" alt="Cinnamon Roll">
+          <div class="info">
+            <div class="title-line">
+              <h3>Cinnamon Roll Artesanal</h3>
+              <span class="price">4.80€</span>
+            </div>
+            <p>Roll de canela esponjoso, glaseado de crema y nueces pecán.</p>
+          </div>
         </div>
-        <p>Roll de canela esponjoso, glaseado de crema y nueces pecán.</p>
-      </div>
-    </div>
-    </div> 
-  </section>
+      </div> 
+    </section>
+
     <section id="galeria" class="bg-light">
       <h2>Ambiente y Sabor</h2>
       <div class="gallery">
@@ -187,13 +211,12 @@
         </div>
         <div class="map-side">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.615462589574!2d-3.705844823438183!3d40.41626125585012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287e076219f7%3A0x6790930773d74942!2sPuerta%20del%20Sol!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.27593259464!2d-3.690327!3d40.425332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228965934f24f%3A0x6734c2b295f590!2sMadrid!5e0!3m2!1ses!2ses!4v1647900000000!5m2!1ses!2ses" 
             width="100%" 
             height="250" 
             style="border:0; border-radius: 15px;" 
             allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
+            loading="lazy">
           </iframe>
           <div class="contact-info">
             <div class="info-item">📍 <strong>Dirección:</strong> Calle del Sabor 42, Madrid</div>
@@ -212,11 +235,5 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
 </body>
 </html>

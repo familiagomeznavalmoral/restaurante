@@ -120,3 +120,26 @@ if (!document.getElementById('msg-animations')) {
     `;
     document.head.appendChild(styleAnim);
 }
+const themeBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Cambiar el icono según el modo
+    if (body.classList.contains('dark-mode')) {
+        themeBtn.innerText = "☀️"; // Sol para volver al modo claro
+    } else {
+        themeBtn.innerText = "🌙"; // Luna para volver al oscuro
+    }
+    
+    // Opcional: Guardar la preferencia del usuario
+    const mode = body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', mode);
+});
+
+// Al cargar la página, comprobar si ya lo había activado antes
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    themeBtn.innerText = "☀️";
+}

@@ -332,20 +332,32 @@ footer p a:hover {
 }
 
 /* --- MODO OSCURO --- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #1a1512;
-    --light-bg: #2a221d;
-    --text-color: #f5f1eb;
-  }
-  .menu-item, .review, form input { 
-    background: #251e1a; 
-    border-color: #3d3028; 
-    color: white;
-  }
-  .menu-item p { color: #ccc; }
+/* Borra el @media (prefers-color-scheme: dark) y pon esto: */
+body.dark-mode {
+  --bg-color: #1a1512;
+  --light-bg: #2a221d;
+  --text-color: #f5f1eb;
+}
+
+/* Asegúrate de que los elementos que cambian de color usen estas variables */
+body.dark-mode .menu-item, 
+body.dark-mode .review, 
+body.dark-mode form input { 
+  background: #251e1a; 
+  border-color: #3d3028; 
+  color: white;
 }
 
 /* --- ANIMACIONES PARA MENSAJES (JS) --- */
 @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: transform 0.3s;
+}
+.theme-btn:hover { transform: scale(1.2); }
