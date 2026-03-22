@@ -8,8 +8,12 @@
   --legal-color: #d1bfae;        /* crema para enlaces secundarios */
 }
 
-/* --- RESET Y REGLA CRÍTICA PARA IMÁGENES --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- RESET Y REGLA CRÍTICA --- */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
 img { 
   max-width: 100%; 
@@ -18,6 +22,7 @@ img {
 }
 
 html { scroll-behavior: smooth; }
+
 body { 
   font-family: 'Montserrat', sans-serif; 
   color: var(--text-color); 
@@ -29,8 +34,7 @@ h1, h2 { font-family: 'Playfair Display', serif; }
 
 /* --- HEADER / HERO --- */
 header {
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-              url('imagenes/fondo.jpg');
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('imagenes/fondo.jpg');
   background-size: cover;
   background-position: center;
   height: 80vh;
@@ -40,7 +44,13 @@ header {
   color: white;
   text-align: center;
 }
-header h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.4); }
+
+header h1 { 
+  font-size: clamp(2.5rem, 8vw, 4.5rem); 
+  margin-bottom: 10px; 
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+}
+
 header .btn { 
   display: inline-block; 
   padding: 15px 30px; 
@@ -50,212 +60,292 @@ header .btn {
   border-radius: 15px; 
   font-weight: bold; 
   margin-top: 20px; 
-  transition: all 0.3s ease; 
-  box-shadow: 0 5px 10px rgba(107,76,59,0.4); 
+  transition: 0.3s; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
 }
 
 /* --- NAVEGACIÓN --- */
-nav { background: var(--secondary-color); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; transition: color 0.3s ease; }
-nav a:hover { color: var(--primary-color); }
+nav { 
+  background: rgba(107, 76, 59, 0.95); /* El mismo marrón pero con un toque transparente */
+  backdrop-filter: blur(10px); /* Desenfoque de fondo */
+  padding: 15px; 
+  text-align: center; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+}
+
+nav a { 
+  color: white; 
+  margin: 0 15px; 
+  text-decoration: none; 
+  font-size: 0.9rem; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+}
+
+.call-btn {
+  background: var(--primary-color);
+  padding: 8px 15px;
+  border-radius: 8px;
+}
 
 /* --- SECCIONES GENERALES --- */
-section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-.bg-light { background: var(--light-bg); }
-h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; }
+section { 
+  padding: 80px 20px; 
+  max-width: 1100px; 
+  margin: auto; 
+}
 
-/* --- MENÚ (ESTILO MEJORADO) --- */
-#menu h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 2.8rem;
+.bg-light { background: var(--light-bg); }
+
+h2 { 
+  text-align: center; 
+  margin-bottom: 50px; 
+  font-size: 2.5rem; 
   color: var(--secondary-color);
-  position: relative;
 }
-#menu h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--primary-color);
-  margin: 15px auto 0;
-}
+
+/* --- MENÚ --- */
 .menu-grid {
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
+
 .menu-item {
   display: flex;
   align-items: center; 
   gap: 20px;
   background: white;
   padding: 25px;
-  border: 1px solid rgba(0,0,0,0.05);
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-  position: relative;
-}
-.menu-item:hover {
-  transform: translateY(-5px);
+  transition: 0.3s ease;
 }
 
+.menu-item:hover { transform: translateY(-5px); }
+
 .menu-item img {
-  width: 90px; 
-  height: 90px;
+  width: 90px; height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
   border: 3px solid var(--bg-color);
 }
 
-.menu-item .info {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding-right: 10px; /* Espacio para que el precio no choque */
-}
-
-.menu-item h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: var(--secondary-color);
-  margin-bottom: 2px;
-  line-height: 1.2;
-}
-
-.menu-item p {
-  font-size: 0.85rem;
-  color: #777;
-  line-height: 1.4;
-  margin: 0;
-}
+.menu-item .info { flex-grow: 1; }
 
 .price {
   font-weight: 700;
   color: var(--primary-color);
-  font-size: 1.1rem;
-  white-space: nowrap;
   background: var(--light-bg); 
   padding: 6px 12px;
   border-radius: 8px;
-  flex-shrink: 0; /* Asegura que el precio no se encoja */
+}
+
+.title-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.menu-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin: 0;
 }
 
 /* --- GALERÍA --- */
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-.gallery-item { position: relative; overflow: hidden; border-radius: 10px; height: 200px; }
-.gallery img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  transition: transform 0.3s ease; 
+.gallery { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 15px; 
 }
-.gallery-item:hover img { transform: scale(1.05); }
 
-/* --- CONTACTO --- */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-form { display: flex; flex-direction: column; }
-form input, form button { padding: 15px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #d1bfae; }
-form button { background: var(--secondary-color); color: white; border: none; cursor: pointer; font-weight: bold; }
-.call-btn {
-  background: var(--primary-color);
-  padding: 8px 15px;
-  border-radius: 8px;
+.gallery-item { 
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 10px; 
+  height: 200px; 
 }
+
+.gallery-item img { 
+  width: 100%; height: 100%; 
+  object-fit: cover; 
+  transition: 0.3s; 
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 76, 59, 0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+  font-family: 'Playfair Display', serif;
+}
+
+.gallery-item:hover .overlay { opacity: 1; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* --- REVIEWS --- */
 .reviews {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
 .review {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-.contact-info { margin-top: 25px; display: flex; flex-direction: column; gap: 12px; }
-.info-item { display: flex; align-items: center; }
-.info-item strong { 
-  color: var(--secondary-color); 
-  min-width: 100px; 
-  display: inline-block; 
+
+/* --- CONTACTO --- */
+.contact-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 40px; 
 }
-.info-item .icon { margin-right: 10px; width: 20px; text-align: center; }
+
+form { display: flex; flex-direction: column; gap: 10px; }
+
+form input { 
+  padding: 15px; 
+  border-radius: 8px; 
+  border: 1px solid #d1bfae; 
+  font-family: inherit;
+}
+
+form button { 
+  background: var(--secondary-color); 
+  color: white; 
+  padding: 15px;
+  border: none; 
+  border-radius: 8px;
+  cursor: pointer; 
+  font-weight: bold; 
+  transition: 0.3s;
+}
+
+form button:hover { background: var(--primary-color); }
+
+.contact-info { margin-top: 25px; display: flex; flex-direction: column; gap: 15px; }
+.info-item { display: flex; align-items: center; gap: 10px; }
+.info-item strong { color: var(--secondary-color); }
 
 /* --- FOOTER --- */
+/* --- FOOTER (Arreglado para legibilidad) --- */
 footer { 
   background: var(--secondary-color); 
   color: white; 
   text-align: center; 
   padding: 60px 20px; 
-  margin-top: 50px; 
+  margin-top: 50px;
+  display: flex; /* Añade esto */
+  flex-direction: column; /* Añade esto */
+  align-items: center; /* Añade esto para centrar el botón */
+  gap: 20px; /* Espacio entre el copyright y el botón */
 }
 
-.legal-link, 
-.legal-link:visited, 
-.legal-link:active {
-  color: var(--legal-color) !important;
+/* Arreglamos los enlaces por defecto del footer */
+footer p a {
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s;
+  color: inherit; /* Hereda el blanco del footer */
+  transition: 0.3s;
 }
 
-.legal-link:hover {
-  color: var(--primary-color) !important;
-  text-decoration: underline;
+footer p a:hover {
+  color: var(--primary-color);
 }
 
-.footer-cta { 
-  display: inline-block; 
-  margin-top: 25px;
-  padding: 12px 35px; 
-  background: var(--primary-color); 
-  color: white !important; 
+.legal-link { 
+  color: var(--legal-color) !important; /* Mantenemos el color crema */
   text-decoration: none; 
-  border-radius: 50px; 
+  font-size: 0.8rem; 
+  opacity: 0.8; /* Un poco transparente para no distraer */
+}
+
+/* --- ESTILO DEL BOTÓN DE RESERVA DEL FOOTER --- */
+.footer-cta {
+  display: inline-block !important; /* Obligatorio para dar tamaño */
+  margin-top: 20px; /* Espacio extra */
+  padding: 15px 30px; 
+  background: var(--primary-color) !important; /* Usamos el color naranja claro */
+  color: white !important; /* Texto blanco para máximo contraste */
+  text-decoration: none !important; /* Quitamos el subrayado */
+  border-radius: 12px; 
   font-weight: bold; 
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra suave */
 }
 
 .footer-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(217,152,110,0.4);
+  transform: translateY(-3px); /* Pequeña animación al pasar el ratón */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  filter: brightness(1.1); /* Brilla un poco más */
 }
 
-/* --- WHATSAPP --- */
-.whatsapp-btn { position: fixed; bottom: 25px; right: 25px; width: 60px; z-index: 1000; }
+.legal-link { color: var(--legal-color); text-decoration: none; font-size: 0.8rem; }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 600px) {
-  .menu-item { flex-direction: column; text-align: center; padding: 20px; }
-  .menu-item .info { padding-right: 0; margin-bottom: 10px; }
-  .info-item strong { min-width: 80px; }
+/* --- BOTONES FLOTANTES --- */
+.whatsapp-btn { 
+  position: fixed; 
+  bottom: 25px; 
+  right: 25px; 
+  width: 45px;      /* más pequeño que antes */
+  height: 45px;     /* necesario para que sea cuadrado */
+  z-index: 2000; 
+  border-radius: 50%; /* mantenerlo redondo */
 }
-/* --- BOTÓN STICKY MÓVIL --- */
+
 .sticky-cta {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 0; left: 0;
   width: 100%;
   background: var(--primary-color);
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 18px;
   font-weight: bold;
+  text-decoration: none;
+  z-index: 1999;
   display: none;
-  z-index: 999;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
+/* --- RESPONSIVE --- */
 @media (max-width: 600px) {
-  .sticky-cta {
-    display: block;
-  }
+  header { height: 60vh; }
+  .menu-item { flex-direction: column; text-align: center; }
+  .whatsapp-btn { bottom: 85px; } /* Sube para no tapar la barra sticky */
+  .sticky-cta { display: block; }
 }
+
+/* --- MODO OSCURO --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1512;
+    --light-bg: #2a221d;
+    --text-color: #f5f1eb;
+  }
+  .menu-item, .review, form input { 
+    background: #251e1a; 
+    border-color: #3d3028; 
+    color: white;
+  }
+  .menu-item p { color: #ccc; }
+}
+
+/* --- ANIMACIONES PARA MENSAJES (JS) --- */
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }

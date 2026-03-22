@@ -6,26 +6,49 @@
   <meta name="description" content="La Esquina Café: experiencia gourmet con café premium, desayunos artesanales y ambiente acogedor tipo bar de madera en Madrid. Reserva tu mesa y disfruta de nuestros platos únicos.">
   <meta name="keywords" content="café, desayuno, restaurante, Madrid, gourmet, madera, rústico, reserva, espresso, croissant, bowl de avena">
   <title>La Esquina Café | Experiencia Gourmet</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <a href="https://wa.me/34123456789?text=Hola,%20quiero%20reservar" class="sticky-cta">
-  Reservar por WhatsApp
-</a>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "La Esquina Café",
+    "image": "imagenes/1.jpg", 
+    "priceRange": "€",
+    "servesCuisine": "Cafetería, Gourmet",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle del Sabor 42",
+      "addressLocality": "Madrid",
+      "postalCode": "28001",
+      "addressCountry": "ES"
+    },
+    "openingHours": "Mo-Su 08:00-22:00",
+    "telephone": "+34912345678"
+  }
+  </script>
 </head>
 <body>
+
+  <a href="https://wa.me/34123456789?text=Hola,%20quiero%20reservar" class="sticky-cta">
+    Reservar por WhatsApp
+  </a>
 
   <a href="https://wa.me/34123456789?text=Hola,%20quiero%20reservar%20una%20mesa" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Reservar por WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Reservar por WhatsApp">
   </a>
-  <p style="margin-top:10px; font-size:0.9rem;">
-  ⭐ Más de 200 clientes satisfechos
-  </p>
 
   <header>
     <div class="overlay">
-      <h1>La Esquina Café</h1>
-      <p>Donde el buen café y los amigos se encuentran.</p>
+      <h1 data-aos="fade-down">La Esquina Café</h1>
+      <p data-aos="fade-up">Donde el buen café y los amigos se encuentran.</p>
       <a href="#contacto" class="btn" aria-label="Ir a la sección de reservas">Reserva tu Mesa</a>
+      <p style="margin-top:20px; font-size:0.9rem; color: #fff;">
+        ⭐ Más de 200 clientes satisfechos
+      </p>
     </div>
   </header>
 
@@ -38,125 +61,144 @@
 
   <main>
     <section id="menu">
-    <h2>Nuestra Selección</h2>
-    <div class="menu-grid">
-        <div class="menu-item">
-        <img src="imagenes/1.jpg" alt="Espresso">
-        <div class="info">
-            <div class="title-line">
-            <h3>Espresso Premium</h3>
-            <span class="price">2.50€</span>
-            </div>
-            <p>Grano de especialidad tostado artesanalmente.</p>
+  <h2>Nuestra Selección</h2>
+  <div class="menu-grid">
+    
+    <div class="menu-item" data-aos="fade-up">
+      <img src="imagenes/1.jpg" alt="Espresso">
+      <div class="info">
+        <div class="title-line">
+          <h3>Espresso Premium</h3>
+          <span class="price">2.50€</span>
         </div>
-        </div>
-
-        <div class="menu-item">
-        <img src="imagenes/2.jpg" alt="Croissant">
-        <div class="info">
-            <div class="title-line">
-            <h3>Croissant Mantequilla</h3>
-            <span class="price">3.20€</span>
-            </div>
-            <p>Hojaldrado perfecto, horneado cada mañana.</p>
-        </div>
-        </div>
-
-        <div class="menu-item">
-        <img src="imagenes/3.jpg" alt="Bowl">
-        <div class="info">
-            <div class="title-line">
-            <h3>Bowl de Avena</h3>
-            <span class="price">6.50€</span>
-            </div>
-            <p>Fruta de temporada, semillas y miel orgánica.</p>
-        </div>
-        </div>
-
-        <div class="menu-item">
-        <img src="imagenes/4.png" alt="Tarta">
-        <div class="info">
-            <div class="title-line">
-            <h3>Tarta Gourmet</h3>
-            <span class="price">4.50€</span>
-            </div>
-            <p>Chocolate belga con relleno de manjar artesano.</p>
-        </div>
-        </div>
+        <p>Grano de especialidad tostado artesanalmente.</p>
+      </div>
     </div>
-    </section>
 
+    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+      <img src="imagenes/2.jpg" alt="Croissant">
+      <div class="info">
+        <div class="title-line">
+          <h3>Croissant Mantequilla</h3>
+          <span class="price">3.20€</span>
+        </div>
+        <p>Hojaldrado perfecto, horneado cada mañana.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+      <img src="imagenes/3.jpg" alt="Bowl">
+      <div class="info">
+        <div class="title-line">
+          <h3>Bowl de Avena</h3>
+          <span class="price">6.50€</span>
+        </div>
+        <p>Fruta de temporada, semillas y miel orgánica.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" data-aos="fade-up" data-aos-delay="300">
+      <img src="imagenes/4.png" alt="Tarta">
+      <div class="info">
+        <div class="title-line">
+          <h3>Tarta Gourmet</h3>
+          <span class="price">4.50€</span>
+        </div>
+        <p>Chocolate belga con relleno de manjar artesano.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" data-aos="fade-up" data-aos-delay="400">
+      <img src="imagenes/Aguacate.png" alt="Tostada de Aguacate">
+      <div class="info">
+        <div class="title-line">
+          <h3>Tostada Aguacate y Huevo</h3>
+          <span class="price">7.50€</span>
+        </div>
+        <p>Aguacate fresco, huevo pochado y semillas en pan de masa madre.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" data-aos="fade-up" data-aos-delay="500">
+      <img src="imagenes/Cinnamon.png" alt="Cinnamon Roll">
+      <div class="info">
+        <div class="title-line">
+          <h3>Cinnamon Roll Artesanal</h3>
+          <span class="price">4.80€</span>
+        </div>
+        <p>Roll de canela esponjoso, glaseado de crema y nueces pecán.</p>
+      </div>
+    </div>
+    </div> 
+  </section>
     <section id="galeria" class="bg-light">
       <h2>Ambiente y Sabor</h2>
       <div class="gallery">
-        <div class="gallery-item">
-          <img src="imagenes/5.jpg" alt="Interior acogedor del café con mesas de madera y iluminación cálida">
+        <div class="gallery-item" data-aos="zoom-in">
+          <img src="imagenes/5.jpg" alt="Interior acogedor">
           <div class="overlay">Ambiente Acogedor</div>
         </div>
-        <div class="gallery-item">
-          <img src="imagenes/6.jpg" alt="Arte latte en una taza de café con diseño creativo">
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="imagenes/6.jpg" alt="Arte latte">
           <div class="overlay">Arte Latte</div>
         </div>
-        <div class="gallery-item">
-          <img src="imagenes/4.png">
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+          <img src="imagenes/4.png" alt="Tarta">
           <div class="overlay">Tarta Gourmet</div>
         </div>
-        <div class="gallery-item">
-          <img src="imagenes/7.jpg" alt="Cena romántica con velas y platos gourmet en el restaurante">
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+          <img src="imagenes/7.jpg" alt="Cena romántica">
           <div class="overlay">Cena Romántica</div>
         </div>
       </div>
     </section>
-      <section id="reviews" class="bg-light">
-        <h2>Lo que dicen nuestros clientes</h2>
-        <div class="reviews">
-      <div class="review">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"El mejor café que he probado en Madrid."</p>
-        <span>- María G.</span>
-      </div>
-      <div class="review">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Ambiente increíble y comida deliciosa."</p>
-        <span>- Carlos R.</span>
-      </div>
-      <div class="review">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Perfecto para desayunar tranquilo."</p>
-        <span>- Laura M.</span>
-      </div>
+
+    <section id="reviews" class="bg-light">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="reviews">
+        <div class="review" data-aos="flip-left">
+          <p>⭐⭐⭐⭐⭐</p>
+          <p>"El mejor café que he probado en Madrid."</p>
+          <span>- María G.</span>
+        </div>
+        <div class="review" data-aos="flip-left" data-aos-delay="100">
+          <p>⭐⭐⭐⭐⭐</p>
+          <p>"Ambiente increíble y comida deliciosa."</p>
+          <span>- Carlos R.</span>
+        </div>
+        <div class="review" data-aos="flip-left" data-aos-delay="200">
+          <p>⭐⭐⭐⭐⭐</p>
+          <p>"Perfecto para desayunar tranquilo."</p>
+          <span>- Laura M.</span>
+        </div>
       </div>
     </section>
+
     <section id="contacto">
       <div class="contact-grid">
         <div class="form-side">
           <h2>Reserva Online</h2>
           <form id="reservation-form">
-            <input type="text" id="name" placeholder="Nombre completo" required aria-label="Ingresa tu nombre completo">
-            <input type="tel" id="phone" placeholder="Teléfono" pattern="\d{9}" required aria-label="Ingresa tu número de teléfono de 9 dígitos">
-            <input type="date" id="date" required aria-label="Selecciona la fecha de reserva">
-            <button type="submit" id="submit-btn" aria-label="Confirmar reserva">Confirmar Reserva</button>
+            <input type="text" id="name" placeholder="Nombre completo" required>
+            <input type="tel" id="phone" placeholder="Teléfono" pattern="\d{9}" required>
+            <input type="date" id="date" required>
+            <button type="submit" id="submit-btn">Confirmar Reserva</button>
           </form>
         </div>
         <div class="map-side">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.552!2d-3.7038!3d40.4168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sPlaza%20Mayor%2C%20Madrid!5e0!3m2!1ses!2ses!4v1700000000!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.615462589574!2d-3.705844823438183!3d40.41626125585012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287e076219f7%3A0x6790930773d74942!2sPuerta%20del%20Sol!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+            width="100%" 
+            height="250" 
+            style="border:0; border-radius: 15px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
           <div class="contact-info">
-            <div class="info-item">
-              <span class="icon">📍</span>
-              <strong>Dirección:</strong>
-              <span>Calle del Sabor 42, Madrid</span>
-            </div>
-            <div class="info-item">
-              <span class="icon">📞</span>
-              <strong>Teléfono:</strong>
-              <span>912 345 678</span>
-            </div>
-            <div class="info-item">
-              <span class="icon">🕒</span>
-              <strong>Horarios:</strong>
-              <span>L-D 8:00 - 22:00</span>
-            </div>
+            <div class="info-item">📍 <strong>Dirección:</strong> Calle del Sabor 42, Madrid</div>
+            <div class="info-item">📞 <strong>Teléfono:</strong> 912 345 678</div>
+            <div class="info-item">🕒 <strong>Horarios:</strong> L-D 8:00 - 22:00</div>
           </div>
         </div>
       </div>
@@ -168,6 +210,13 @@
     <a href="#contacto" class="btn footer-cta">Reserva tu Mesa Ahora</a>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
