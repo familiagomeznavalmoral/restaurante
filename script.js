@@ -67,3 +67,17 @@ style.textContent = `
   @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
 `;
 document.head.appendChild(style);
+
+document.getElementById("reservation-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const date = document.getElementById("date").value;
+
+  const message = `Hola, soy ${name}. Quiero reservar una mesa para el día ${date}. Mi teléfono es ${phone}`;
+
+  const url = `https://wa.me/34123456789?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+});
